@@ -192,6 +192,12 @@ h1 {
   margin-left: 0.45rem;
 }
 
+.note {
+  color: var(--muted);
+  font-size: 0.83rem;
+  margin: -0.35rem 0 0.75rem;
+}
+
 /* ---- timeline ---- */
 
 .timeline {
