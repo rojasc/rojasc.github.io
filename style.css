@@ -1,22 +1,23 @@
 :root {
-  --bg: #0f1115;
-  --card: #171a21;
-  --text: #e8eaed;
-  --muted: #9aa0a6;
-  --accent: #6c8cff;
-  --border: #262a33;
-  --rule: #1e222a;
+  --bg: #12110f;
+  --card: #1a1815;
+  --text: #eae6df;
+  --muted: #9a938a;
+  --accent: #e08a63;
+  --border: #2b2823;
+  --rule: #22201c;
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
 }
 
 @media (prefers-color-scheme: light) {
   :root {
-    --bg: #fbfbfc;
+    --bg: #fbfaf7;
     --card: #ffffff;
-    --text: #17191d;
-    --muted: #5f6368;
-    --accent: #3b5bdb;
-    --border: #e3e5e8;
-    --rule: #eceef1;
+    --text: #1b1917;
+    --muted: #6b645c;
+    --accent: #b0522f;
+    --border: #e6e1d8;
+    --rule: #ece8e0;
   }
 }
 
@@ -40,56 +41,61 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  padding: 3.5rem 1.25rem 4rem;
+  padding: 4rem 1.25rem 4rem;
 }
 
 ::selection {
   background: var(--accent);
-  color: #fff;
+  color: var(--bg);
 }
 
 .wrap {
   width: 100%;
   max-width: 580px;
-  text-align: center;
+  text-align: left;
 }
 
 /* ---- header ---- */
 
 header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-bottom: 2rem;
+  gap: 1.15rem;
+  margin-bottom: 2.25rem;
 }
 
 .avatar {
-  width: 104px;
-  height: 104px;
+  width: 82px;
+  height: 82px;
   border-radius: 50%;
   object-fit: cover;
   border: 1px solid var(--border);
-  margin-bottom: 1rem;
+  flex: none;
+}
+
+.id {
+  min-width: 0;
 }
 
 h1 {
-  margin: 0 0 0.3rem;
-  font-size: 1.8rem;
+  margin: 0 0 0.2rem;
+  font-size: 1.75rem;
   font-weight: 700;
   letter-spacing: -0.02em;
+  line-height: 1.15;
 }
 
 .tagline {
   margin: 0;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
+  line-height: 1.45;
 }
 
 /* ---- bio ---- */
 
 .bio {
   margin-bottom: 1.75rem;
-  text-align: left;
 }
 
 .bio p {
@@ -100,7 +106,7 @@ h1 {
 }
 
 .bio p:first-child {
-  font-size: 1.12rem;
+  font-size: 1.15rem;
   font-weight: 600;
   line-height: 1.45;
   color: var(--text);
@@ -116,8 +122,7 @@ h1 {
 
 .links {
   display: flex;
-  gap: 0.6rem;
-  justify-content: center;
+  gap: 1.4rem;
   flex-wrap: wrap;
   margin-bottom: 3rem;
 }
@@ -126,21 +131,18 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.55rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--card);
   color: var(--text);
   text-decoration: none;
-  font-size: 0.88rem;
-  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  font-size: 0.9rem;
+  padding-bottom: 2px;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 .link-card:hover,
 .link-card:focus-visible {
-  border-color: var(--accent);
   color: var(--accent);
-  transform: translateY(-1px);
+  border-color: var(--accent);
 }
 
 .link-card svg {
@@ -152,7 +154,6 @@ h1 {
 /* ---- sections ---- */
 
 .block {
-  text-align: left;
   margin-bottom: 2.75rem;
 }
 
@@ -161,10 +162,11 @@ h1 {
 }
 
 .block h2 {
+  font-family: var(--mono);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.13em;
+  letter-spacing: 0.16em;
   color: var(--muted);
   margin: 0 0 1.25rem;
   padding-bottom: 0.7rem;
@@ -182,20 +184,23 @@ h1 {
 .company {
   font-weight: 650;
   font-size: 1rem;
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.55rem;
 }
 
+/* dates and spans in mono — the one deliberate flourish */
 .span {
+  font-family: var(--mono);
   font-weight: 400;
   color: var(--muted);
-  font-size: 0.82rem;
-  margin-left: 0.45rem;
+  font-size: 0.78rem;
+  margin-left: 0.5rem;
+  letter-spacing: -0.01em;
 }
 
 .note {
   color: var(--muted);
-  font-size: 0.83rem;
-  margin: -0.35rem 0 0.75rem;
+  font-size: 0.85rem;
+  margin: -0.25rem 0 0.85rem;
 }
 
 /* ---- timeline ---- */
@@ -204,26 +209,25 @@ h1 {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-left: 2px solid var(--rule);
+  border-left: 1px solid var(--border);
 }
 
-/* a lone role shouldn't render a dangling rail */
 .timeline:has(li:only-child) {
   border-left-color: transparent;
 }
 
 .timeline li {
   position: relative;
-  padding: 0 0 1rem 1.1rem;
+  padding: 0 0 1rem 1.15rem;
 }
 
 .timeline li::before {
   content: "";
   position: absolute;
-  left: -5px;
-  top: 0.5rem;
-  width: 8px;
-  height: 8px;
+  left: -3px;
+  top: 0.55rem;
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
   background: var(--accent);
 }
@@ -238,15 +242,17 @@ h1 {
 }
 
 .meta {
+  font-family: var(--mono);
   color: var(--muted);
-  font-size: 0.85rem;
-  margin-top: 0.1rem;
+  font-size: 0.79rem;
+  margin-top: 0.15rem;
+  letter-spacing: -0.01em;
 }
 
 /* ---- highlights ---- */
 
 .highlights {
-  margin: 0.9rem 0 0 1.1rem;
+  margin: 0.9rem 0 0 1.15rem;
   padding: 0 0 0 1rem;
   color: var(--muted);
   font-size: 0.9rem;
@@ -267,35 +273,35 @@ h1 {
 
 /* ---- tools ---- */
 
-.chips-label {
-  margin: 0 0 0.6rem;
-  font-size: 0.78rem;
+.tools {
+  margin: 0;
+}
+
+.tools dt {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
   color: var(--muted);
+  margin-bottom: 0.4rem;
 }
 
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-bottom: 1.5rem;
+.tools dd {
+  margin: 0 0 1.35rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-.chips:last-child {
+.tools dd:last-child {
   margin-bottom: 0;
 }
 
-.chip {
-  padding: 0.32rem 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--card);
-  font-size: 0.8rem;
-  color: var(--text);
+.tools dd + dt {
+  margin-top: 0;
 }
 
-.muted-chips .chip {
+.tools .past {
   color: var(--muted);
-  background: transparent;
 }
 
 /* ---- footer ---- */
@@ -307,14 +313,19 @@ footer {
 
 footer p {
   margin: 0;
+  font-family: var(--mono);
   color: var(--muted);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 
 @media (max-width: 480px) {
   body { padding: 2.5rem 1.1rem 3rem; }
-  h1 { font-size: 1.6rem; }
+  header { gap: 0.9rem; }
+  .avatar { width: 68px; height: 68px; }
+  h1 { font-size: 1.45rem; }
+  .tagline { font-size: 0.86rem; }
   .bio p:first-child { font-size: 1.05rem; }
+  .links { gap: 1.1rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
